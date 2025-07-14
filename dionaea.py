@@ -1,4 +1,5 @@
 import socket
+from responses import get_response
 from logger import setup_logger
 
 logger = setup_logger()
@@ -52,11 +53,11 @@ def simulate_shell(conn, ip):
                 conn.sendall(b"logout\r\n")
                 break
 
-            response = FAKE_RESPONSES.get(command, "bash: command not found")
+            response = get_response(command)
             if not response.endswith("\r\n"):
                 response += "\r\n"
-
             conn.sendall(response.encode())
+
 
         conn.sendall(b"\r\nSession closed.\r\n")
     except Exception as e:
