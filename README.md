@@ -28,6 +28,9 @@ a fake SSH honeypot written in Python that simulates a Linux login shell over TC
 dionaea/
 ├── dionaea.py # Main honeypot logic
 ├── logger.py # Centralized logging utility
+├── responses/
+│ └── commands.py # Fake commands
+  └── __init__.py
 ├── logs/
 │ └── activity.log # All connection activity
 └── README.md
